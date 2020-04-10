@@ -25,12 +25,13 @@ class CountCountry extends Equatable{
     recovered = json['recovered'];
     active = json['active'];
     critical = json['critical'];
-    mildCondition = active - critical;
-    closedCase = deaths + recovered;
-    ratioMildCondition= (mildCondition / active * 100).toStringAsFixed(2);
-    ratioRecovered= (recovered / closedCase * 100).toStringAsFixed(2);
-    ratioCritical= (critical / active * 100).toStringAsFixed(2);
-    ratioDeaths= (deaths / closedCase * 100).toStringAsFixed(2);
+    //// custom property ////
+    mildCondition = active - critical; // Mild Condition
+    closedCase = deaths + recovered; // All Closed Case
+    ratioMildCondition= (mildCondition / active * 100).toStringAsFixed(2); // ratio Mild Condition per Active
+    ratioRecovered= (recovered / closedCase * 100).toStringAsFixed(2); // ratio Recovered per Closed Case
+    ratioCritical= (critical / active * 100).toStringAsFixed(2); // ratio Critical Condition per Active
+    ratioDeaths= (deaths / closedCase * 100).toStringAsFixed(2); // ratio Deaths per Closed Case
   }
 
   Map<String, dynamic> toJson() {

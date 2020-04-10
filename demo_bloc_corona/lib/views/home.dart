@@ -13,7 +13,9 @@ class HomePage extends StatelessWidget {
           if (state is CoronaError) {
             return HomeErrorWidget();
           } else if (state is CoronaLoaded) {
-            return HasCoronaData(state.coronaData[0]);
+            final c =
+                state.coronaData.where((c) => c.country == 'World').toList();
+            return HasCoronaData(c[0]);
           }
 
           return Center(child: CircularProgressIndicator());
